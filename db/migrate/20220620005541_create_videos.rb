@@ -4,7 +4,7 @@ class CreateVideos < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :thumbnail
       t.string :url
-      t.integer :uploaded_by
+      t.integer :uploader_id
 
       t.timestamps
     end
