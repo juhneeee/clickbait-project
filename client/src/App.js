@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import VideoForm from './components/VideoForm';
 
 function App() {
-  
+
   return (
     <div className="App">
       <header className="App-header">
