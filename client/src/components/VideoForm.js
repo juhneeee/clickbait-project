@@ -24,7 +24,7 @@ function VideoForm() {
     }
 
     function addVideo(obj){
-        fetch(API + "video", {
+        fetch(API + "videos", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
