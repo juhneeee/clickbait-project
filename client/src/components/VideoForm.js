@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 const youtubeAPI = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet&key=AIzaSyBRtr7ks8BNgFQd06r36SwIp58Iy2bimSY&id="
-const API = "https://vast-wave-75628.herokuapp.com/"
+// const API = "https://vast-wave-75628.herokuapp.com/"
+const API = "localhost:3000/"
 
 function VideoForm() {
     const [urlInput, setUrlInput] = useState("")
