@@ -7,7 +7,7 @@ function VideoForm() {
 
     function handleSubmit(e){
         e.preventDefault()
-        const id = urlInput.match(/=[a-z0-9]+/i)[0].slice(1)
+        const id = urlInput.match(/=[a-z0-9_]+/i)[0].slice(1)
         console.log({id: id})
         fetch(youtubeAPI + id)
         .then(r => r.json())
@@ -19,6 +19,7 @@ function VideoForm() {
                 url: id,
                 uploader_id: null
             }
+            console.log(videoObj)
             addVideo(videoObj)
         })
     }
@@ -27,7 +28,7 @@ function VideoForm() {
         fetch(API + "videos", {
             method: "POST",
             headers: {
-                "content-type": "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(obj)
         })
