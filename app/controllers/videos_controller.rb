@@ -6,7 +6,7 @@ class VideosController < ApplicationController
         render json: videos
     end
     def show
-        video = video.find(:id)
+        video = Video.find(params[:id])
         render json: video
     end
     def create

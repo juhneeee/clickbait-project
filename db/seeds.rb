@@ -16,7 +16,7 @@ puts "Seeding videos"
 
 null = nil
 
-v1 = Video.create!(title:"This Narc Squad Might be Hilarious, But Their Badassness is No Joke | Extreme Job", thumbnail:"https://i.ytimg.com/vi/c4vFxKX3nOg/sddefault.jpg", url: "c4vFxKX3nOg")
-v2 = Video.create!( { title: "Gordon Ramsay Baffled By Tiny Club Sandwich | Kitchen Nightmares FULL EPISODE", thumbnail: "https://i.ytimg.com/vi/iXJNyDorfmM/sddefault.jpg", url: "iXJNyDorfmM", uploader_id: null })
-v3 = Video.create!({ title: "Desperate Drug Squad Takes Over A Chicken Restaurant for An Undercover Operation | Extreme Job", thumbnail: "https://i.ytimg.com/vi/agBFwIO_Be8/sddefault.jpg", url: "agBFwIO_Be8", uploader_id: null })
-v4 = Video.create({ title: "Amnesiac Killer's Superior Knife Skills Shine at A Restaurant | Yoo Hae Jin | Title: Luck-key", thumbnail: "https://i.ytimg.com/vi/FtEKJOGyeTE/sddefault.jpg", url: "FtEKJOGyeTE", uploader_id: null })
+v1 = Video.create!(title:"This Narc Squad Might be Hilarious, But Their Badassness is No Joke | Extreme Job", thumbnail:"https://i.ytimg.com/vi/c4vFxKX3nOg/mqdefault.jpg", url: "c4vFxKX3nOg")
+v2 = Video.create!( { title: "Gordon Ramsay Baffled By Tiny Club Sandwich | Kitchen Nightmares FULL EPISODE", thumbnail: "https://i.ytimg.com/vi/iXJNyDorfmM/mqdefault.jpg", url: "iXJNyDorfmM", uploader_id: null })
+v3 = Video.create!({ title: "Desperate Drug Squad Takes Over A Chicken Restaurant for An Undercover Operation | Extreme Job", thumbnail: "https://i.ytimg.com/vi/agBFwIO_Be8/mqdefault.jpg", url: "agBFwIO_Be8", uploader_id: null })
+v4 = Video.create({ title: "Amnesiac Killer's Superior Knife Skills Shine at A Restaurant | Yoo Hae Jin | Title: Luck-key", thumbnail: "https://i.ytimg.com/vi/FtEKJOGyeTE/mqdefault.jpg", url: "FtEKJOGyeTE", uploader_id: null })

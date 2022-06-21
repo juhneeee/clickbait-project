@@ -1,12 +1,11 @@
 import React from "react";
 
 function VideoItem({video}){
-    const [thumbnail, title, url] = video
-    console.log("video item loaded")
+    const {thumbnail, title, url} = video
 
     return <div className="card">
+        <h3>{title}</h3>
         <img src={thumbnail} alt={title}></img>
-        <p3>{title}</p3>
     </div>
 }
 
