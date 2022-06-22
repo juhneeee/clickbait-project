@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
-  
-  resources :comparisons
-  resources :videos
-  resources :users
+  namespace :api do
+    resources :comparisons
+    resources :videos
+    resources :users
 
-  get 'get2', to: "videos#get2"
+    get '/get2', to: "videos#get2"
 
-  get "/me", to: "users#show"
-  
-  post 'login', to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+    get "/me", to: "users#show"
+    
+    post '/login', to: "sessions#create"
+    delete "/logout", to: "sessions#destroy"
+  end
+
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function VideoItem({video, handleWin}){
+function ListItem({video, handleWin}){
     const {thumbnail, title} = video
     const [isGreen, setIsGreen] = useState(false)
 
@@ -17,4 +17,4 @@ function VideoItem({video, handleWin}){
     </div>
 }
 
-export default VideoItem;
+export default ListItem;

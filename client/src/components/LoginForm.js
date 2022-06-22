@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import API from '../App'
 
-function LoginForm(){
+function LoginForm({setUser}){
     const [formData, setFormData] = useState({username: "", password: ""})
     const [feedback, setFeedback] = useState("")
 
@@ -21,7 +22,10 @@ function LoginForm(){
         })
         .then(d =>{
             if (d.error){setFeedback(d.error)
-            } else {setFeedback("")}
+            } else {
+                setFeedback("")
+                console.log(d)
+            }
         })
         
     }

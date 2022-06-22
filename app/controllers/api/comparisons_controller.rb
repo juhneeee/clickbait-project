@@ -1,4 +1,4 @@
-class ComparisonsController < ApplicationController
+class Api::ComparisonsController < ApplicationController
 
     def index
         comparisons = Comparison.all

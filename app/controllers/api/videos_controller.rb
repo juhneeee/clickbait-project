@@ -1,4 +1,4 @@
-class VideosController < ApplicationController
+class Api::VideosController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :invalid
 
     def index

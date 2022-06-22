@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from "react";
-import logo from './logo.svg';
+import { Switch , Route } from "react-router-dom";
 import './App.css';
 import VideoForm from './components/VideoForm';
 import VideoList from './components/VideoList';
 import CompareVideo from "./components/CompareVideo";
-
+import NavBar from "./components/NavBar";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   const [videos, setVideos] = useState([])
-  // const API = "http://localhost:3000/"
-  const API = "https://vast-wave-75628.herokuapp.com/"
+  const API = "http://localhost:3000/api/"
+  // const API = "https://vast-wave-75628.herokuapp.com/api/"
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -32,9 +33,26 @@ function App() {
 
   return (
     <div className="App">
-      <CompareVideo API={API}/>
-      <VideoForm fetchVideos={fetchVideos} API={API}/>
-      <VideoList videos={videos} fetchVideos={fetchVideos} API={API}/>
+      <NavBar API={API} user={user} setUser={setUser} />
+
+      <Switch>
+        <Route path="/compare">
+          <CompareVideo API={API}/>
+        </Route>
+
+        <Route path="/new">
+          <VideoForm fetchVideos={fetchVideos} API={API}/>
+        </Route>
+
+        <Route path="/all">
+          <VideoList videos={videos} fetchVideos={fetchVideos} API={API}/>
+        </Route>
+
+        <Route path="/login">
+          <LoginForm API={API} setUser={setUser}/>
+        </Route>
+
+      </Switch>
     </div>
   );
 }

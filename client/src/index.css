@@ -35,3 +35,25 @@ div {
 .green {
   background-color: #b6d7a8;
 }
+
+
+.link {
+  display: flex;
+  text-decoration: none;
+  color: rgb(41, 98, 255);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.logo {
+  font-family: "Permanent Marker", cursive;
+  font-size: 3rem;
+  color: rgb(20, 83, 255);
+  margin: 0;
+  line-height: 1;
+}
