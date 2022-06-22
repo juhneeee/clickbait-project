@@ -4,6 +4,7 @@ import VideoItem from './VideoItem';
 function CompareVideo({API}){
     const [videos, setVideos] = useState([]);
     const currentUser = null;
+    const [acceptingResponse, setAcceptingResponse] = useState(true)
 
     useEffect(()=>{
         fetchRandom()
@@ -14,8 +15,7 @@ function CompareVideo({API}){
         .then(r => r.json())
         .then(setVideos)
     }
-
-    function handleWin(winningID){
+    function createComparison(winningID){
         const body = {
             video_a_id: videos[0].id,
             video_b_id: videos[1].id,
@@ -28,11 +28,22 @@ function CompareVideo({API}){
                 'Content-Type': "application/json"
             },
             body: JSON.stringify(body)
-        }).then(r => r.json())
-        .then(console.log)
+        })
     }
 
-    return <div>
+    function handleWin(winningID){
+        if (acceptingResponse){
+            console.log(videos);
+            setAcceptingResponse(false)
+            createComparison(winningID);
+            setTimeout(() => {
+                fetchRandom();
+                setAcceptingResponse(true)
+            }, 1000);
+        }
+    }
+
+    return <div className="compare_container">
         {videos.map(v => {
             return <VideoItem 
             key={v.id} 
