@@ -43,14 +43,17 @@ function CompareVideo({API}){
         }
     }
 
-    return <div className="compare_container">
+    return <>
+    <h2>Click on the video that interests you more.</h2>
+    <div className="compare_container">
         {videos.map(v => {
             return <VideoItem 
             key={v.id} 
             video={v} 
-            handleClick={()=> handleWin(v.id)} />
+            handleWin={()=> handleWin(v.id)} />
         })}
     </div>
+    </>
 }
 
 export default CompareVideo;

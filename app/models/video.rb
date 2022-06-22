@@ -1,5 +1,5 @@
 class Video < ApplicationRecord
-
+    validates :title, :thumbnail, presence: true
 
     def uploader
         User.find(self.uploader_id)

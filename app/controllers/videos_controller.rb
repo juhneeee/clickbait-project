@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-    
+    rescue_from ActiveRecord::RecordInvalid, with: :invalid
 
     def index
         videos = Video.all
@@ -13,6 +13,7 @@ class VideosController < ApplicationController
         video = Video.create!(video_params)
         render json: video, status: 201
     end
+    
     def get2
         videos = Video.all.sample(2)
         render json: videos
@@ -22,5 +23,8 @@ class VideosController < ApplicationController
     private
     def video_params
         params.permit(:title, :thumbnail, :url, :uploader_id )
+    end
+    def invalid
+        render json: {error: "Invalid youtube url or missing title/thumbnail"}, status: 422
     end
 end
