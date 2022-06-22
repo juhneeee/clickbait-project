@@ -8,8 +8,8 @@ import CompareVideo from "./components/CompareVideo";
 
 function App() {
   const [videos, setVideos] = useState([])
-  const API = "http://localhost:3000/"
-  // const API = "https://vast-wave-75628.herokuapp.com/"
+  // const API = "http://localhost:3000/"
+  const API = "https://vast-wave-75628.herokuapp.com/"
   const [user, setUser] = useState(null);
 
   useEffect(() => {
