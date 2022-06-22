@@ -1,11 +1,13 @@
 import React from "react";
 
-function VideoItem({video}){
+function VideoItem({video, handleClick}){
     const {thumbnail, title, url} = video
 
+
+
     return <div className="card">
-        <h3>{title}</h3>
-        <img src={thumbnail} alt={title}></img>
+        <h5 onClick={handleClick}>{title}</h5>
+        <img src={thumbnail} alt={title} onClick={handleClick}></img>
     </div>
 }
 

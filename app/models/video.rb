@@ -18,7 +18,7 @@ class Video < ApplicationRecord
         comparisons.count
     end
     def clicks
-        Comparison.where(clicked: self.id).count
+        Comparison.where(winner: self.id).count
     end
     def click_through_rate
         clicks/impressions
