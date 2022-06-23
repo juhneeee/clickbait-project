@@ -36,7 +36,7 @@ function App() {
       <NavBar API={API} user={user} setUser={setUser} />
 
       <Switch>
-        <Route path="/compare">
+        <Route path="/">
           <CompareVideo API={API}/>
         </Route>
 
@@ -45,7 +45,7 @@ function App() {
         </Route>
 
         <Route path="/all">
-          <VideoList videos={videos} fetchVideos={fetchVideos} API={API}/>
+          <VideoList user={user} videos={videos} fetchVideos={fetchVideos} API={API}/>
         </Route>
 
         <Route path="/login">

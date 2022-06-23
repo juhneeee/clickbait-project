@@ -20,10 +20,12 @@ function LoginForm({setUser}){
             },
             body: JSON.stringify(formData)
         })
+        .then(r => r.json())
         .then(d =>{
             if (d.error){setFeedback(d.error)
             } else {
                 setFeedback("")
+                console.log("log in success")
                 console.log(d)
             }
         })
@@ -31,9 +33,9 @@ function LoginForm({setUser}){
     }
 
     return <form onSubmit={handleSubmit}>
-        <input type="text" name="username" value={formData.username} onChange={handleChange}></input>
-        <input type="text" name="password" value={formData.password} onChange={handleChange}></input>
-        <button type="submit" > </button>
+        <input type="text" name="username" value={formData.username} onChange={handleChange} placeholder="username"></input>
+        <input type="text" name="password" value={formData.password} onChange={handleChange} placeholder="password"></input>
+        <button type="submit" > Log In</button>
         <p>{feedback}</p>
     </form>
 }

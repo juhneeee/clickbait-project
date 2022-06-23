@@ -23,4 +23,12 @@ class Video < ApplicationRecord
     def click_through_rate
         clicks/impressions.to_f
     end
+
+    def self.convert_images(num = 1)
+        #https://i.ytimg.com/vi/9rZ45Qr5-c4/default.jpg
+        sizes = ["", "mq", "hq", "sd", "maxres"]
+        Video.all.each do |video|
+            video.update(thumbnail: "https://i.ytimg.com/vi/#{video.url}/#{sizes[num]}default.jpg")
+        end
+    end
 end

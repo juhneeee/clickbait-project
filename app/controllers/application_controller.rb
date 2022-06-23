@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
   include ActionController::Cookies
+
+  rescue_from ActiveRecord::RecordInvalid, with: :invalid
   # before_action :authorize
 
   # def authorize
@@ -7,6 +9,9 @@ class ApplicationController < ActionController::API
   #   render json: { errors: ["Not authorized"] }, status: :unauthorized unless @current_user
   # end
 
+  def invalid(error)
+    render json: {error: error}, status: 422
+  end
 
 
 end
