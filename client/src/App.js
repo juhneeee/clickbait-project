@@ -36,9 +36,6 @@ function App() {
       <NavBar API={API} user={user} setUser={setUser} />
 
       <Switch>
-        <Route path="/">
-          <CompareVideo API={API}/>
-        </Route>
 
         <Route path="/new">
           <VideoForm fetchVideos={fetchVideos} API={API}/>
@@ -52,6 +49,9 @@ function App() {
           <LoginForm API={API} setUser={setUser}/>
         </Route>
 
+        <Route path="/">
+          <CompareVideo API={API}/>
+        </Route>
       </Switch>
     </div>
   );

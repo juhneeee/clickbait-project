@@ -16,7 +16,7 @@ function NavBar({ API, user, setUser }) {
         <h1 className="logo">Clickbait Comparator</h1>
 
       <nav className="navbar">
-        <Link className="link" to="/compare">
+        <Link className="link" to="/">
           Compare
         </Link>
         <Link className="link" to="/new">
