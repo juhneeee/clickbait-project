@@ -9,8 +9,7 @@ function VideoList({API, videos, fetchVideos, user}){
         fetchVideos()
     }, [])
 
-
-    videos.sort((a,b)=> a.stats[sortBy] > b.stats[sortBy] ? -1 : 1)
+    videos && videos.sort((a,b)=> a.stats[sortBy] > b.stats[sortBy] ? -1 : 1)
 
     return <div>
         <p>current api: {API}</p>

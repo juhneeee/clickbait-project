@@ -14,7 +14,7 @@ class Api::SessionsController < ApplicationController
 
     private
     def not_found error
-      render json: {error: error}, status:404
+      render json: {error: "Couldn't find account associated with that username/password. Try signing up?"}, status:404
     end
       
   end

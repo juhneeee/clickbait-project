@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import API from '../App'
 
-function LoginForm({setUser}){
+function LoginForm({API, setUser}){
     const [formData, setFormData] = useState({username: "", password: ""})
     const [feedback, setFeedback] = useState("")
 
@@ -13,6 +12,7 @@ function LoginForm({setUser}){
 
     function handleSubmit(e){
         e.preventDefault()
+        console.log(formData)
         fetch(API + "login", {
             method: "POST",
             headers: {
@@ -22,11 +22,12 @@ function LoginForm({setUser}){
         })
         .then(r => r.json())
         .then(d =>{
+            console.log(d)
             if (d.error){setFeedback(d.error)
             } else {
                 setFeedback("")
                 console.log("log in success")
-                console.log(d)
+                setUser(d.id)
             }
         })
         

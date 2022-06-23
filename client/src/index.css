@@ -1,7 +1,11 @@
 body {
   margin: 0;
   font-family: 'Roboto', 'Arial', 'sans-serif';
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: #efefef;
+}
+
+img {
+  background-color: #b7b7b7;
 }
 
 div {
@@ -41,20 +45,20 @@ div {
 
 
 .link {
-  display: flex;
+  /* display: flex; */
+  justify-content: space-around;
   text-decoration: none;
   color: rgb(41, 98, 255);
 }
 
 .wrapper {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   padding: 8px;
 }
 
 .logo {
-  font-family: "Permanent Marker", cursive;
   font-size: 3rem;
   color: rgb(20, 83, 255);
   margin: 0;

@@ -12,6 +12,7 @@ function App() {
   const API = "http://localhost:3000/api/"
   // const API = "https://vast-wave-75628.herokuapp.com/api/"
   const [user, setUser] = useState(null);
+  // user is saved as id
 
   useEffect(() => {
     fetch(API + "me")
@@ -36,12 +37,11 @@ function App() {
       <NavBar API={API} user={user} setUser={setUser} />
 
       <Switch>
-
         <Route path="/new">
-          <VideoForm fetchVideos={fetchVideos} API={API}/>
+          <VideoForm user={user} fetchVideos={fetchVideos} API={API}/>
         </Route>
 
-        <Route path="/all">
+        <Route path="/videos">
           <VideoList user={user} videos={videos} fetchVideos={fetchVideos} API={API}/>
         </Route>
 
@@ -50,7 +50,7 @@ function App() {
         </Route>
 
         <Route path="/">
-          <CompareVideo API={API}/>
+          <CompareVideo user={user} API={API}/>
         </Route>
       </Switch>
     </div>

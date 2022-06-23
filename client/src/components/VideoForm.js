@@ -1,7 +1,8 @@
 import React, {useState} from "react";
+import ListItem from "./ListItem";
 const youtubeAPI = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet&key=AIzaSyBRtr7ks8BNgFQd06r36SwIp58Iy2bimSY&id="
 
-function VideoForm({fetchVideos, API}) {
+function VideoForm({user, fetchVideos, API}) {
     const [urlInput, setUrlInput] = useState("")
     const [titleInput, setTitleInput] = useState("")
     const [thumbnailInput, setThumbnailInput] = useState("")
@@ -16,16 +17,20 @@ function VideoForm({fetchVideos, API}) {
             fetch(youtubeAPI + id)
             .then(r => r.json())
             .then(data => {
+                if (data.items[0]){
                 const snippet = data.items[0].snippet
-                // console.log(snippet.thumbnails)
                 const videoObj = {
                     title: snippet.title,
-                    thumbnail: snippet.thumbnails.medium.url,
+                    thumbnail: snippet.thumbnails.maxres.url,
                     url: id,
-                    uploader_id: null
+                    uploader_id: user
                 }
-                // console.log(videoObj)
                 addVideo(videoObj)
+                setFeedback("")
+                }
+                else {
+                    setFeedback("Invalid url")
+                }
             })
         } else {
             const videoObj = {
@@ -52,21 +57,21 @@ function VideoForm({fetchVideos, API}) {
             if (d.error){setFeedback(d.error)
             } else {setFeedback("")}
         })
-        .then(fetchVideos)
-        .then(r => r.json())
     }
     
 
-    return <form onSubmit={handleSubmit}>
-        <input type="text" name="url" placeholder="url" value={urlInput} onChange={(e)=>setUrlInput(e.target.value)}></input>
+    return <div>
+            <form onSubmit={handleSubmit}>
+            <input type="text" name="url" placeholder="url" value={urlInput} onChange={(e)=>setUrlInput(e.target.value)}></input>
 
-        <input type="text" name="title" placeholder="title" value={titleInput} onChange={e=>setTitleInput(e.target.value)}></input>
+            <input type="text" name="title" placeholder="title" value={titleInput} onChange={e=>setTitleInput(e.target.value)}></input>
 
-        <input type="text" name="thumbnail" placeholder="thumbnail" value={thumbnailInput} onChange={e=>setThumbnailInput(e.target.value)}></input>
+            <input type="text" name="thumbnail" placeholder="thumbnail" value={thumbnailInput} onChange={e=>setThumbnailInput(e.target.value)}></input>
 
-        <button type="submit">Submit</button>
-        <p>{feedback}</p>
-    </form>
+            <button type="submit">Submit</button>
+            <p>{feedback}</p>
+        </form>
+    </div>
 }
 
 export default VideoForm;

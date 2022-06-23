@@ -22,13 +22,13 @@ function NavBar({ API, user, setUser }) {
         <Link className="link" to="/new">
           Add Video
         </Link>
-        <Link className="link" to="/all">
+        <Link className="link" to="/videos">
           Video List
         </Link>
         {user ?
-            <Link className="link" variant="outline" onClick={handleLogoutClick}>
+            <a className="link" variant="outline" onClick={handleLogoutClick}>
                 Logout
-            </Link> : 
+            </a> : 
             <Link className="link" to="/login">
                 Login
             </Link> 

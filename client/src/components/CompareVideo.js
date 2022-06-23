@@ -1,9 +1,8 @@
 import react, {useEffect, useState} from 'react';
 import VideoItem from './VideoItem';
 
-function CompareVideo({API}){
+function CompareVideo({user, API}){
     const [videos, setVideos] = useState([]);
-    const currentUser = null;
     const [acceptingResponse, setAcceptingResponse] = useState(true)
 
     useEffect(()=>{
@@ -16,11 +15,12 @@ function CompareVideo({API}){
         .then(setVideos)
     }
     function createComparison(winningID){
+        console.log(user)
         const body = {
             video_a_id: videos[0].id,
             video_b_id: videos[1].id,
             winner: winningID,
-            user_id: currentUser
+            user_id: user
         }
         fetch(API + "comparisons", {
             method: "POST",
@@ -46,7 +46,7 @@ function CompareVideo({API}){
     return <>
     <h2>Click on the video that interests you more.</h2>
     <div className="compare_container">
-        {videos.map(v => {
+        {videos[0] && videos.map(v => {
             return <VideoItem 
             key={v.id} 
             video={v} 
