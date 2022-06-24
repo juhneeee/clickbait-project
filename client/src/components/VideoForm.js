@@ -1,13 +1,24 @@
 import React, {useState} from "react";
-import ListItem from "./ListItem";
+import { useHistory } from "react-router-dom";
 const youtubeAPI = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet&key=AIzaSyBRtr7ks8BNgFQd06r36SwIp58Iy2bimSY&id="
 
-function VideoForm({user, fetchVideos, API}) {
+function VideoForm({user, API}) {
     const [urlInput, setUrlInput] = useState("")
     const [titleInput, setTitleInput] = useState("")
     const [thumbnailInput, setThumbnailInput] = useState("")
     const [feedback, setFeedback] = useState("")
 
+    const history = useHistory()
+
+    function thumbnailPicker(obj){
+        const res = ["maxres", "high", "medium", "standard"]
+        for (let e of res){ 
+            if(obj[e]){
+                console.log(obj[e])
+                return obj[e]
+            }
+        }
+    }
 
     function handleSubmit(e){
         e.preventDefault()
@@ -19,14 +30,14 @@ function VideoForm({user, fetchVideos, API}) {
             .then(data => {
                 if (data.items[0]){
                 const snippet = data.items[0].snippet
+                const thumbnail = thumbnailPicker(snippet.thumbnails)
                 const videoObj = {
                     title: snippet.title,
-                    thumbnail: snippet.thumbnails.maxres.url,
+                    thumbnail: thumbnail.url,
                     url: id,
                     uploader_id: user
                 }
                 addVideo(videoObj)
-                setFeedback("")
                 }
                 else {
                     setFeedback("Invalid url")
@@ -53,23 +64,35 @@ function VideoForm({user, fetchVideos, API}) {
             },
             body: JSON.stringify(obj)
         })
+        .then(r=> r.json())
         .then(d =>{
             if (d.error){setFeedback(d.error)
-            } else {setFeedback("")}
+            } else {
+                console.log(d)
+                setTimeout(()=>{
+                    history.push('/videos/'+d.id)
+                }, 50)               
+            }
         })
     }
     
 
-    return <div>
-            <form onSubmit={handleSubmit}>
+    return <div className="form">
+        <div className="center">
+        <h1>Upload a video</h1>
+        <p>You can upload a video with just video URL. or both Title and Thumbnail.</p>
+        </div>
+            <form className="hundred" onSubmit={handleSubmit}>
+            <label >Youtube URL:</label>
             <input type="text" name="url" placeholder="url" value={urlInput} onChange={(e)=>setUrlInput(e.target.value)}></input>
-
+            <label >Title:</label>
             <input type="text" name="title" placeholder="title" value={titleInput} onChange={e=>setTitleInput(e.target.value)}></input>
-
+            <label >Thumbnail:</label>
             <input type="text" name="thumbnail" placeholder="thumbnail" value={thumbnailInput} onChange={e=>setThumbnailInput(e.target.value)}></input>
-
+        <div className="center">
             <button type="submit">Submit</button>
             <p>{feedback}</p>
+        </div>
         </form>
     </div>
 }

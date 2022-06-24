@@ -7,6 +7,9 @@ body {
 img {
   background-color: #b7b7b7;
 }
+img:hover {
+  cursor: pointer
+}
 
 div {
   border: 2px solid black;
@@ -86,7 +89,7 @@ div {
 .sixty {
   width: 60%;
 }
-.sixty h2, p{
+.sixty h2, h3, p{
   padding-left: 3%;
   text-align: left;
 }
@@ -94,5 +97,44 @@ div {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  
+}
+.ninety {
+  width:95%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5%;
+}
+.circle {
+  clip-path: circle();
+}
+.twenty-five {
+  width: 25%;
+  border: 2px solid blue
+}
+.twenty-five img {
+  margin-top: 13px;
+  width: 100%;
+}
+.seventy-five {
+  width: 74%;
+}
+.seventy-five h3, h4, h5, p{
+  padding-left: 3%;
+  text-align: left;
+}
+.center {
+  width: 100%;
+  text-align: center;
+}
+.form {
+  padding-top: 3rem;
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20%
+}
+
+form label, input, p{
+  width:100%;
+  text-align: left;
 }

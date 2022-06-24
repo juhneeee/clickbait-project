@@ -8,8 +8,6 @@ function ListItem({video}){
     let history = useHistory()
 
     function handleClick(){
-        // route to video details/:id component
-        // 
         history.push('/videos/'+id)
     }
 

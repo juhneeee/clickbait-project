@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :comparisons
-    resources :videos
-    resources :users
+    resources :comparisons, only: [:index, :show, :create]
+    resources :videos, only: [:index, :show, :create]
+    resources :users, only:[:index]
 
     get '/get2', to: "videos#get2"
 
@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     
     post '/login', to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
+    post '/signup', to: "users#create"
   end
+  get '/hello', to: 'application#hello_world'
 
   
   # Routing logic: fallback requests for React Router.

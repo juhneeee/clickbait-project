@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <NavBar API={API} user={user} setUser={setUser} />
-
+      {user && <p>hello {user}</p>}
       <Switch>
         <Route path="/new">
           <VideoForm user={user} fetchVideos={fetchVideos} API={API}/>
