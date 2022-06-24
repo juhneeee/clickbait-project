@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
+import { useHistory } from "react-router-dom";
 
 function ListItem({video}){
-    const {thumbnail, title, stats} = video
-    const {click_through_rate, impressions, clicks} = stats
+    const {thumbnail, title, stats, id} = video
+    
+
+    let history = useHistory()
 
     function handleClick(){
         // route to video details/:id component
         // 
-        console.log(video)
+        history.push('/videos/'+id)
     }
 
     return <div 
@@ -17,8 +20,8 @@ function ListItem({video}){
             </div>
             <div className="sixty">
         <h2 onClick={handleClick}>{title}</h2>
-        <p>{impressions} impressions</p>
-        <p>{(click_through_rate*100).toFixed(1)}% click-through-rate</p>
+        <p>{stats.impressions} impressions</p>
+        <p>{(stats.click_through_rate*100).toFixed(1)}% click-through-rate</p>
             </div>
     </div>
 }

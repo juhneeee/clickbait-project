@@ -46,9 +46,12 @@ div {
 
 .link {
   /* display: flex; */
-  justify-content: space-around;
   text-decoration: none;
   color: rgb(41, 98, 255);
+  margin-left:8%;
+  margin-right:8%;
+  border: 2px solid green;
+  padding: 3px;
 }
 
 .wrapper {
@@ -77,7 +80,7 @@ div {
 }
 
 .fourty {
-  width: 40%;
+  width: 39%;
   border: 2px solid blue
 }
 .sixty {
@@ -86,4 +89,10 @@ div {
 .sixty h2, p{
   padding-left: 3%;
   text-align: left;
+}
+.hundred {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  
 }

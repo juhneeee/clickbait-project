@@ -6,6 +6,7 @@ import VideoList from './components/VideoList';
 import CompareVideo from "./components/CompareVideo";
 import NavBar from "./components/NavBar";
 import LoginForm from "./components/LoginForm";
+import VideoPage from "./components/VideoPage";
 
 function App() {
   const [videos, setVideos] = useState([])
@@ -39,6 +40,10 @@ function App() {
       <Switch>
         <Route path="/new">
           <VideoForm user={user} fetchVideos={fetchVideos} API={API}/>
+        </Route>
+
+        <Route path="/videos/:id">
+          <VideoPage user={user} API={API} />
         </Route>
 
         <Route path="/videos">
