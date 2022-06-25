@@ -5,6 +5,7 @@ class Api::SessionsController < ApplicationController
       user = User.find_by(username: params[:username])
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
+##<ActionDispatch::Request::Session:0x00007ff34c6e2a20
         render json: user
       else
         render json: { error: "Invalid username or password" }, status: :unauthorized
