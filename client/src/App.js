@@ -23,9 +23,11 @@ function App() {
         .then(setUser);
       }
     });
+    // fetchVideos()
   }, []);
 
   function fetchVideos(){
+    console.log('fetching videos')
     fetch(API + "videos")
     .then(r => r.json())
     .then(d => {

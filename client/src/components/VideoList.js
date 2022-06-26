@@ -5,10 +5,10 @@ function VideoList({API, videos, fetchVideos, user}){
     const [sortBy, setSortBy] = useState("click_through_rate")
     const [isFiltered, setIsFiltered] = useState(false)
     
-    useEffect(()=>{
-        console.log("video list loading")
-        fetchVideos()
-    }, [])
+    // useEffect(()=>{
+    //     console.log("video list loading")
+    //     fetchVideos()
+    // }, [])
 
     if (!videos){return <></>}
     let videosToDisplay = videos
