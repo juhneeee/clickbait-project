@@ -13,8 +13,10 @@ class Api::SessionsController < ApplicationController
       end
     end
 
-    def test
-      render json:session
+    def hello_world
+      session[:count] = (session[:count] || 0) + 1
+      p session[:count]
+      render json: { count: session[:count] }
     end
 
     def destroy

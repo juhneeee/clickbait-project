@@ -23,7 +23,7 @@ function App() {
         .then(setUser);
       }
     });
-    // fetchVideos()
+    fetchVideos()
   }, []);
 
   function fetchVideos(){

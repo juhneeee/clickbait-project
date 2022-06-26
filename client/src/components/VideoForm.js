@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 const youtubeAPI = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet&key=AIzaSyBRtr7ks8BNgFQd06r36SwIp58Iy2bimSY&id="
 
-function VideoForm({user, API}) {
+function VideoForm({user, API, fetchVideos}) {
     const [urlInput, setUrlInput] = useState("")
     const [titleInput, setTitleInput] = useState("")
     const [thumbnailInput, setThumbnailInput] = useState("")
@@ -69,9 +69,10 @@ function VideoForm({user, API}) {
             if (d.error){setFeedback(d.error)
             } else {
                 console.log(d)
+                fetchVideos()
                 setTimeout(()=>{
                     history.push('/videos/'+d.id)
-                }, 50)               
+                }, 50)
             }
         })
     }

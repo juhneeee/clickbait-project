@@ -14,8 +14,7 @@ class Api::UsersController < ApplicationController
 
     def show
         user = User.find_by(id: session[:user_id])
-        p session
-        byebug
+        # byebug
         ##<ActionDispatch::Request::Session:0x6c98 not yet loaded>
         if user
             render json: user

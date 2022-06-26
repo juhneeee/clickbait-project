@@ -13,6 +13,9 @@ function CompareVideo({user, API}){
         fetch(API+ "get2")
         .then(r => r.json())
         .then(setVideos)
+        fetch(API+'hello')
+        .then(r=>r.json())
+        .then(console.log)
     }
     function createComparison(winningID){
         console.log(user)

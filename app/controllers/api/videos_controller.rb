@@ -16,7 +16,7 @@ class Api::VideosController < ApplicationController
     
     def get2
         videos = Video.all.sample(2)
-        render json: videos
+        render json: videos#, serializer:VideoGetSerializer
     end
 
 
