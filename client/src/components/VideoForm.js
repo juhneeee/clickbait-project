@@ -47,7 +47,7 @@ function VideoForm({user, API, fetchVideos}) {
             const videoObj = {
                 title: titleInput,
                 thumbnail: thumbnailInput,
-                uploader_id: null
+                uploader_id: user
             }
             addVideo(videoObj)
         }
@@ -57,6 +57,7 @@ function VideoForm({user, API, fetchVideos}) {
     }
 
     function addVideo(obj){
+        console.log(obj)
         fetch(API + "videos", {
             method: "POST",
             headers: {

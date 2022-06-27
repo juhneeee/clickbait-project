@@ -21,7 +21,7 @@ class Api::SessionsController < ApplicationController
 
     def destroy
       session.delete :user_id
-      byebug
+      # byebug
       head :no_content
     end
 

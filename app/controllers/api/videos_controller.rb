@@ -1,5 +1,6 @@
 class Api::VideosController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :invalid
+    # before_action :authorize, only: [:update, :destroy]
 
     def index
         videos = Video.all
@@ -16,9 +17,17 @@ class Api::VideosController < ApplicationController
     
     def get2
         videos = Video.all.sample(2)
-        render json: videos#, serializer:VideoGetSerializer
+        render json: videos#, serializer:VideoLiteSerializer
     end
-
+    def update
+        video = Video.find_by!(id: params[:id])
+        video.update(video_params)
+        render json: video
+    end
+    def destroy
+        video = Video.find_by!(id: params[:id])
+        video.destroy
+    end
 
     private
     def video_params

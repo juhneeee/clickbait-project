@@ -11,10 +11,9 @@ function VideoList({API, videos, fetchVideos, user}){
     // }, [])
 
     if (!videos){return <></>}
-    let videosToDisplay = videos
-    if (isFiltered){
-        videosToDisplay = videos.filter(v => v.uploader_id == user)
-    }
+    let videosToDisplay = isFiltered? videos.filter(v => v.uploader_id == user): videos
+    console.log(videosToDisplay.length)
+
     if(sortBy=="click_through_rate"){
         // CTR descending
         videosToDisplay.sort((a,b) => a.stats[sortBy]>b.stats[sortBy]? -1: 1)
@@ -30,11 +29,11 @@ function VideoList({API, videos, fetchVideos, user}){
             <button onClick={()=>setSortBy("click_through_rate")}>Top Videos</button>
             <button onClick={()=>setSortBy("impressions")}>Newest Videos</button>
             {user&& <button 
-            onClick={()=>setIsFiltered(!isFiltered)}>
+            onClick={()=>setIsFiltered(a => !a)}>
                 {isFiltered?"All Videos":"My Videos"}
             </button>}
         </div>
-        {videos.map(v=>{
+        {videosToDisplay.map(v=>{
             return <ListItem key={v.url} video={v} />
         })}
     </div>

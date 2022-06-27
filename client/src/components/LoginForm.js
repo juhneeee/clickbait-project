@@ -42,6 +42,7 @@ function LoginForm({API, setUser}){
                 setFeedback("")
                 console.log("log in success")
                 setUser(d.id)
+                history.push('/')
             }
         })
     }
@@ -55,8 +56,8 @@ function LoginForm({API, setUser}){
         <input type="text" name="password" value={formData.password} onChange={handleChange} placeholder="Password"></input>
         <button type="submit" > Log In</button>
         <p>{feedback}</p>
+        <button onClick={handleSignUp}>Sign Up</button>
     </form>
-    <button onClick={handleSignUp}>Sign Up</button>
     </div>
 }
 

@@ -13,7 +13,7 @@ function VideoItem({video, handleWin}){
     return <div 
         className={isGreen ? "card green" : "card"}>
         <img src={thumbnail} alt={title} onClick={handleClick}></img>
-        <h2 className="compare-title" onClick={handleClick}>{title}</h2>
+        <h2 className="compare-title pointer" onClick={handleClick}>{title}</h2>
     </div>
 }
 

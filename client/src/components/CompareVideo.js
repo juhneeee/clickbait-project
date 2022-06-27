@@ -1,7 +1,7 @@
 import react, {useEffect, useState} from 'react';
 import VideoItem from './VideoItem';
 
-function CompareVideo({user, API}){
+function CompareVideo({user, API, fetchVideos}){
     const [videos, setVideos] = useState([]);
     const [acceptingResponse, setAcceptingResponse] = useState(true)
 
@@ -39,6 +39,7 @@ function CompareVideo({user, API}){
             console.log(videos);
             setAcceptingResponse(false)
             createComparison(winningID);
+            fetchVideos()
             setTimeout(() => {
                 fetchRandom();
                 setAcceptingResponse(true)

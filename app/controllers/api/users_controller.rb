@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-    # skip_before_action :authorize, only: :create
+    before_action :authorize, only: [:index]
 
     def index
         users = User.all
@@ -19,7 +19,6 @@ class Api::UsersController < ApplicationController
         if user
             render json: user
         else
-            # render json: 
             render json: { error: "Not authorized" }, status: :unauthorized
         end
     end

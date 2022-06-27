@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     resources :comparisons, only: [:index, :show, :create]
-    resources :videos, only: [:index, :show, :create]
+    resources :videos, only: [:index, :show, :create, :update, :destroy]
     resources :users, only:[:index]
 
     get '/get2', to: "videos#get2"
