@@ -9,7 +9,6 @@ function EditForm({user, API, fetchVideos, video, fetchShow}) {
     function handleSubmit(e){
         e.preventDefault()
         editVideo({title: titleInput, thumbnail: thumbnailInput})
-
     }
 
     function editVideo(obj){

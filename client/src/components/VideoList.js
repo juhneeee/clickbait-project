@@ -4,15 +4,10 @@ import ListItem from "./ListItem";
 function VideoList({API, videos, fetchVideos, user}){
     const [sortBy, setSortBy] = useState("click_through_rate")
     const [isFiltered, setIsFiltered] = useState(false)
-    
-    // useEffect(()=>{
-    //     console.log("video list loading")
-    //     fetchVideos()
-    // }, [])
 
     if (!videos){return <></>}
+
     let videosToDisplay = isFiltered? videos.filter(v => v.uploader_id == user): videos
-    console.log(videosToDisplay.length)
 
     if(sortBy=="click_through_rate"){
         // CTR descending
@@ -22,7 +17,6 @@ function VideoList({API, videos, fetchVideos, user}){
         // newest to oldest (impressions asc)
         videosToDisplay.sort((a,b) => a.stats[sortBy]<b.stats[sortBy]? -1: 1)
     }
-
 
     return <div>
         <div className="hundred">

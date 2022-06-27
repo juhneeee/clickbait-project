@@ -24,7 +24,6 @@ function VideoForm({user, API, fetchVideos}) {
         e.preventDefault()
         if (urlInput){
             const id = urlInput.match(/=[a-z0-9_]+/i)[0].slice(1)
-            // console.log({id: id})
             fetch(youtubeAPI + id)
             .then(r => r.json())
             .then(data => {
@@ -57,7 +56,6 @@ function VideoForm({user, API, fetchVideos}) {
     }
 
     function addVideo(obj){
-        console.log(obj)
         fetch(API + "videos", {
             method: "POST",
             headers: {
@@ -69,7 +67,6 @@ function VideoForm({user, API, fetchVideos}) {
         .then(d =>{
             if (d.error){setFeedback(d.error)
             } else {
-                console.log(d)
                 fetchVideos()
                 setTimeout(()=>{
                     history.push('/videos/'+d.id)

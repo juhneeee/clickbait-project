@@ -22,10 +22,6 @@ class Api::UsersController < ApplicationController
             render json: { error: "Not authorized" }, status: :unauthorized
         end
     end
-    # def show
-    #     render json: @user
-    # end
-
 
     private
     def user_params

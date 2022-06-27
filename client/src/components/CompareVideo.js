@@ -18,7 +18,6 @@ function CompareVideo({user, API, fetchVideos}){
         .then(console.log)
     }
     function createComparison(winningID){
-        console.log(user)
         const body = {
             video_a_id: videos[0].id,
             video_b_id: videos[1].id,
@@ -36,7 +35,6 @@ function CompareVideo({user, API, fetchVideos}){
 
     function handleWin(winningID){
         if (acceptingResponse){
-            console.log(videos);
             setAcceptingResponse(false)
             createComparison(winningID);
             fetchVideos()

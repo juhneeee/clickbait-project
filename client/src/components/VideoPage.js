@@ -49,7 +49,6 @@ function VideoPage({API, user, fetchVideos}){
         <div className='center'>
             <h1>Match-Ups</h1>
         </div>
-
             {matchups.map(m => <MatchUp key={m.id} matchup={m}/>)}
         </div>
     </div>

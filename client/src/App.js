@@ -13,7 +13,7 @@ function App() {
   const API = "http://localhost:3000/api/"
   // const API = "https://vast-wave-75628.herokuapp.com/api/"
   const [user, setUser] = useState(null);
-  // user is saved as id
+  // user is saved as id (integer)
 
   useEffect(() => {
     fetch(API + "me")
@@ -27,7 +27,6 @@ function App() {
   }, []);
 
   function fetchVideos(){
-    console.log('fetching videos')
     fetch(API + "videos")
     .then(r => r.json())
     .then(d => {

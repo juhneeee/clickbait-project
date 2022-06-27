@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 function LoginForm({API, setUser}){
-    const [formData, setFormData] = useState({username: "jimmy", password: "password"})
+    const [formData, setFormData] = useState({username: "", password: ""})
     const [feedback, setFeedback] = useState("")
 
     const history = useHistory()
@@ -21,12 +21,11 @@ function LoginForm({API, setUser}){
             body: JSON.stringify(formData)
         })
         .then(r => r.json())
-        .then(console.log)
+        // .then(console.log)
     }
 
     function handleSubmit(e){
         e.preventDefault()
-        console.log(formData)
         fetch(API + "login", {
             method: "POST",
             headers: {
@@ -36,7 +35,6 @@ function LoginForm({API, setUser}){
         })
         .then(r => r.json())
         .then(d =>{
-            console.log(d)
             if (d.error){setFeedback(d.error)
             } else {
                 setFeedback("")

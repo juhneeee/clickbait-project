@@ -17,7 +17,7 @@ function NavBar({ API, user, setUser }) {
 
   return (
     <header className="wrapper">
-        <h1 className="logo">Clickbait Battle</h1>
+      <h1 className="logo">Clickbait Battle</h1>
 
       <nav className="navbar">
         <Link className="link" to="/">
@@ -30,12 +30,12 @@ function NavBar({ API, user, setUser }) {
           Video List
         </Link>
         {user ?
-            <a className="link pointer" variant="outline" onClick={handleLogoutClick}>
-                Logout
-            </a> : 
-            <Link className="link" to="/login">
-                Login
-            </Link> 
+          <a className="link pointer" variant="outline" onClick={handleLogoutClick}>
+              Logout
+          </a> : 
+          <Link className="link" to="/login">
+              Login
+          </Link> 
         }
 
       </nav>
