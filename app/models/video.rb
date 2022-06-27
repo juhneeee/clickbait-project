@@ -27,7 +27,7 @@ class Video < ApplicationRecord
                 combined[k] = v
             end
         end
-        #combined stores data as matchup, winner, count
+        #combined stores data as [matchup, winner]=> count
         combined
     end
 
