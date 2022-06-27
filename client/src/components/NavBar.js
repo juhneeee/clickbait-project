@@ -31,7 +31,7 @@ function NavBar({ API, user, setUser }) {
         </Link>
         {user ?
           <a className="link pointer" variant="outline" onClick={handleLogoutClick}>
-              Logout
+            Logout
           </a> : 
           <Link className="link" to="/login">
               Login

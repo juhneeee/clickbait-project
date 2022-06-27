@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import ListItem from "./ListItem";
 
-function VideoList({API, videos, fetchVideos, user}){
+function VideoList({videos, user}){
     const [sortBy, setSortBy] = useState("click_through_rate")
     const [isFiltered, setIsFiltered] = useState(false)
 
